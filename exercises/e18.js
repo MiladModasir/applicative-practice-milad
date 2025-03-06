@@ -5,9 +5,23 @@
  */
 
 export function getGreatestDiscoveryYear(data) {
-  // Your code goes here...
-  // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  let yearTally = data.asteroids.reduce(function(acc, val) {
+    let year = val.discoveryYear;
+    if (acc[year]) {
+      acc[year]++;
+    } else {
+      acc[year] = 1;
+    }
+    return acc;
+  }, {});
+  let greatestYear = Object.keys(yearTally).reduce(function(maxYear, year) {
+    return yearTally[year] > yearTally[maxYear] ? year : maxYear;
+  });
+  return Number(greatestYear);
 }
+
+
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-18"

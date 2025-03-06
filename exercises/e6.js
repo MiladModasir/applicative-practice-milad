@@ -4,9 +4,18 @@ import { data } from "../data/data";
 // Return an array with all asteroids names discovered after a given year
 // Return example: ['name1', 'name2', ... , 'nameN']
 
+
 export function getAsteroidsDiscoveredAfterYear(data, year) {
-  // Your code goes here...
+  let getAsteroidsDiscoveredAfterYear = data.asteroids
+  .filter (function(asteroid){
+  return asteroid.discoveryYear > year
+  })
+  .map(function(asteroid){
+  return asteroid.name;
+  });
+  return getAsteroidsDiscoveredAfterYear;
 }
+
 
 
 

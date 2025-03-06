@@ -5,7 +5,11 @@ import { data } from "../data/data";
 // Return example: { key1: value1, key2: value2, ... , keyN: valueN }
 
 export function getAsteroidDataByName(data, asteroidName) {
-  // Your code goes here...
+  let getAsteroidDataByName = data.asteroids
+  .find(function(asteroid){
+  return asteroid.name === asteroidName;
+  });
+  return getAsteroidDataByName
 }
 
 
